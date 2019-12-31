@@ -1,6 +1,8 @@
 import VideoList from './VideoList.js';
 import VideoPlayer from './VideoPlayer.js';
 import exampleVideoData from '/src/data/exampleVideoData.js';
+import searchYouTube from '/src/lib/searchYouTube.js';
+import YOUTUBE_API_KEY from '/src/config/youtube.js';
 
 class App extends React.Component {
   constructor(props) {
