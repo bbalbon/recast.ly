@@ -1,6 +1,6 @@
 import VideoList from './VideoList.js';
+import VideoPlayer from './VideoPlayer.js';
 import exampleVideoData from '/src/data/exampleVideoData.js';
-
 
 var App = () => (
   <div>
@@ -13,6 +13,8 @@ var App = () => (
     <div className="row">
       <div className="col-md-7">
         {/* <VideoPlayer /> */}
+        {/* implement function here that the onClick method invokes */}
+        {/* this function invokes videoPlayer with the video object passed in */}
         <div><h5><em>videoPlayer</em> view goes here</h5></div>
       </div>
       <div className="col-md-5">
