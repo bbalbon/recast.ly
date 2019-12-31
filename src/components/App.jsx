@@ -13,13 +13,12 @@ var App = () => (
     <div className="row">
       <div className="col-md-7">
         {/* <VideoPlayer /> */}
+        <VideoPlayer video={exampleVideoData[0]}/>
         {/* implement function here that the onClick method invokes */}
         {/* this function invokes videoPlayer with the video object passed in */}
-        <div><h5><em>videoPlayer</em> view goes here</h5></div>
       </div>
       <div className="col-md-5">
         <VideoList videos={exampleVideoData}/>
-        {/* <div><h5><em>videoList</em> view goes here</h5></div> */}
       </div>
     </div>
   </div>
