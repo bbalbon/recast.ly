@@ -4,6 +4,10 @@ import exampleVideoData from '/src/data/exampleVideoData.js';
 import searchYouTube from '/src/lib/searchYouTube.js';
 import YOUTUBE_API_KEY from '/src/config/youtube.js';
 
+searchYouTube({ part: 'snippet', key: YOUTUBE_API_KEY, query: 'cats', max: 10 }, (data) => {
+  console.log(data.items);
+});
+
 class App extends React.Component {
   constructor(props) {
     super(props);

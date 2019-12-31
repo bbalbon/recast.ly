@@ -11,19 +11,3 @@ var searchYouTube = (options, callback) => {
 
 export default searchYouTube;
 
-// options = {
-//   key: ,
-//   max: ,
-//   query:
-// }
-
-
-// new file where we call searchYouTube
-// searchYoutube({
-//   key: key,
-//   query: cats,
-//   bla: 10,
-// }, () => {
-//   render data....
-// })
-
