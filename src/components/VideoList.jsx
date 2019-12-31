@@ -2,9 +2,8 @@ import VideoListEntry from './VideoListEntry.js';
 
 var VideoList = (props) => (
   <div className="video-list">
-    { console.log(props.videos) }
-    {props.videos.map(video =>
-      <VideoListEntry title={video.snippet.title} description={video.snippet.description} thumbnail={video.snippet.thumbnails.medium.url}/>
+    {props.videos.map((video, i) =>
+      <VideoListEntry key={i} title={video.snippet.title} description={video.snippet.description} thumbnail={video.snippet.thumbnails.default.url}/>
     )}
   </div>
 );

@@ -18,7 +18,7 @@ var App = () => (
       </div>
       <div className="col-md-5">
         <VideoList videos={exampleVideoData}/>
-        <div><h5><em>videoList</em> view goes here</h5></div>
+        {/* <div><h5><em>videoList</em> view goes here</h5></div> */}
       </div>
     </div>
   </div>
@@ -28,7 +28,3 @@ var App = () => (
 // `var` declarations will only exist globally where explicitly defined
 export default App;
 
-
-
-//are we importing properly?
-//how to debug?
