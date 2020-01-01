@@ -1,20 +1,30 @@
 import VideoList from './VideoList.js';
 import VideoPlayer from './VideoPlayer.js';
 import exampleVideoData from '/src/data/exampleVideoData.js';
-import searchYouTube from '/src/lib/searchYouTube.js';
+import searchYouTube from '/src/lib/searchYoutube.js';
 import YOUTUBE_API_KEY from '/src/config/youtube.js';
 
-searchYouTube({ part: 'snippet', key: YOUTUBE_API_KEY, query: 'cats', max: 10 }, (data) => {
-  console.log(data.items);
-});
+// searchYouTube({ part: 'snippet', key: YOUTUBE_API_KEY, query: 'cats', max: 10, type: 'video', videoEmbeddable: true}, (data) => {
+//   console.log(data);
+// });
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      videos: exampleVideoData,
       current: exampleVideoData[0]
     };
+  }
+
+  componentDidMount() {
+    searchYouTube({}, (data) => {
+      this.setState({
+        videos: data.items,
+        current: data.items[0]
+      });
+    });
   }
 
   playVideo (video) {
@@ -37,7 +47,7 @@ class App extends React.Component {
             <VideoPlayer video={this.state.current}/>
           </div>
           <div className="col-md-5">
-            <VideoList videos={exampleVideoData} click={this.playVideo.bind(this)}/>
+            <VideoList videos={this.state.videos} click={this.playVideo.bind(this)}/>
           </div>
         </div>
       </div>
@@ -46,7 +56,5 @@ class App extends React.Component {
 
 }
 
-// In the ES6 spec, files are "modules" and do not share a top-level scope
-// `var` declarations will only exist globally where explicitly defined
 export default App;
 
