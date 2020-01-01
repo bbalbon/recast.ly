@@ -1,5 +1,6 @@
 import VideoList from './VideoList.js';
 import VideoPlayer from './VideoPlayer.js';
+import Search from './Search.js';
 import exampleVideoData from '/src/data/exampleVideoData.js';
 import searchYouTube from '/src/lib/searchYoutube.js';
 import YOUTUBE_API_KEY from '/src/config/youtube.js';
@@ -19,7 +20,14 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    searchYouTube({}, (data) => {
+    searchYouTube({
+      part: 'snippet',
+      key: YOUTUBE_API_KEY,
+      q: 'dogs',
+      maxResults: 10,
+      type: 'video',
+      videoEmbeddable: true
+    }, (data) => {
       this.setState({
         videos: data.items,
         current: data.items[0]
@@ -33,13 +41,28 @@ class App extends React.Component {
     });
   }
 
+  onSearchButtonClick (searchTerm) {
+    searchYouTube({
+      part: 'snippet',
+      key: YOUTUBE_API_KEY,
+      q: searchTerm,
+      maxResults: 10,
+      type: 'video',
+      videoEmbeddable: true
+    }, (data) => {
+      this.setState({
+        videos: data.items,
+        current: data.items[0]
+      });
+    });
+  }
+
   render() {
     return (
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            {/* <Search /> */}
-            <div><h5><em>search</em> view goes here</h5></div>
+            <Search form={'dream'} click={this.onSearchButtonClick.bind(this)}/>
           </div>
         </nav>
         <div className="row">

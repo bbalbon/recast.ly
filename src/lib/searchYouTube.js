@@ -7,14 +7,7 @@ var searchYouTube = (options, callback) => {
     contentType: 'application/json',
     success: callback,
     error: (error) => { console.log(error); },
-    data: {
-      part: 'snippet',
-      query: 'cats',
-      key: YOUTUBE_API_KEY,
-      max: 5,
-      type: 'video',
-      videoEmbeddable: true
-    }
+    data: options
   });
 };
 
