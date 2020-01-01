@@ -3,8 +3,7 @@ var Search = (props) => (
     <input className="form-control" type="text" id="input"/>
     <button className="btn hidden-sm-down">
       <span className="glyphicon glyphicon-search" onClick={() =>{
-        let inputText = document.getElementById('input').value;
-        props.click(inputText);
+        props.click(document.getElementById('input').value);
       }}></span>
     </button>
   </div>

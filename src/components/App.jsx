@@ -62,7 +62,7 @@ class App extends React.Component {
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <Search form={'dream'} click={this.onSearchButtonClick.bind(this)}/>
+            <Search click={this.onSearchButtonClick.bind(this)}/>
           </div>
         </nav>
         <div className="row">
